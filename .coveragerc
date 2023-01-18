@@ -1,0 +1,38 @@
+[run]
+omit =
+    # Ignore any packaging files.
+    .eggs/*
+    .mypy_cache/*
+    .tox/*
+    doc/*
+    nem2.egg-info/*
+    # Ignore mocked libraries for unittests.
+    *mock*
+    # Ignore test directory utilities.
+    *tests*
+    # Ignore mypy plugins.
+    xpxchainmypy.py
+    # Ignore the setup script.
+    setup.py
+    # Ignore hash and signature implementations.
+    xpxchain/util/hashlib/*
+    xpxchain/util/signature/*
+    # Ignore RxPy extensions.
+    xpxchain/util/rx/*
+    xpxchain/util/reactive.py
+    # Ignore incomplete or not yet implemented models in the catapult API.
+    # TODO: Restore these models when they are stabilized in catapult.
+    xpxchain/models/account/account_meta.py
+    xpxchain/models/contract/*
+
+[report]
+show_missing = True
+exclude_lines =
+    pragma: unreachable
+    pragma: no cover
+    raise AbstractMethodError
+    raise abc.AbstractMethodError
+    raise util.AbstractMethodError
+    def fix_annotation
+    if typing.TYPE_CHECKING:
+    if MYPY:
